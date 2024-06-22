@@ -1,16 +1,23 @@
 import { useReadContract, useAccount } from 'wagmi'
 import { abi } from './abi'
-
+import Big from 'big.js'; // Import big.js
 
 export const ReadContract = () => {
   const { address } = useAccount();
+  const contractAddress = process.env.NEXT_PUBLIC_CONTRACT_ID as `0x${string}` | undefined;
 
   const { data, isError, isLoading } = useReadContract({
     abi,
-    address: '0xaDAd81B5D4E8A548D8638B4052166971cbCa22C4',
+    address: contractAddress,
     functionName: 'balanceOf',
     args: address ? [address, BigInt(1)] : undefined,
   });
+
+  let balance;
+  if (data) {
+    balance = new Big(data.toString()).toString();
+  }
+
 
   if (isLoading) return <div>Loading... </div>;
   if (isError) return <div>Error loading balance </div>;
@@ -19,7 +26,7 @@ export const ReadContract = () => {
     <>
       <div>
         <h1>Contract data</h1>
-        <p>{data ? data : 'No data available'}</p>
+        <p>{balance ? balance : 'No data available'}</p>
       </div>
     </>
   );
