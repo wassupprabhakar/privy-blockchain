@@ -7,7 +7,7 @@ export const ReadContract = () => {
 
   const { data, isError, isLoading } = useReadContract({
     abi,
-    address: address,
+    address: '0xaDAd81B5D4E8A548D8638B4052166971cbCa22C4',
     functionName: 'balanceOf',
     args: address ? [address, BigInt(1)] : undefined,
   });
@@ -18,7 +18,7 @@ export const ReadContract = () => {
   return (
     <>
       <div>
-        <h1>Read contract data</h1>
+        <h1>Contract data</h1>
         <p>{data ? data : 'No data available'}</p>
       </div>
     </>
