@@ -32,7 +32,7 @@ export default function Home() {
         redirect("/");
       } else {
         console.log("user -> ", user?.linkedAccounts?.[0]);
-        setUserName(user?.linkedAccounts?.[0]?.name || "");
+        setUserName((user?.linkedAccounts?.[0] as { name: string })?.name || "");
       }
     }
   }, [ready, authenticated, user]);
