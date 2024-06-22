@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import PrivyAuthProviders from "./_Privy/PrivyAuthProvider";
-import WagmiConfigProviders from "./_Wagmi/WagmiConfigProvider";
-import Providers from "./Providers";
+import Providers from "./_Provider/Providers";
 
 const inter = Inter({ subsets: ["latin"] });
 

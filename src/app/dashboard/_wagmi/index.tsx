@@ -1,26 +1,25 @@
-import { useReadContract } from 'wagmi'
+import { useReadContract, useAccount } from 'wagmi'
 import { abi } from './abi'
 
-interface AppProps {
-  userAddress: any;
-}
 
-export const GetBalance = ({ userAddress }: AppProps) => {
+export const ReadContract = () => {
+  const { address } = useAccount();
+
   const { data, isError, isLoading } = useReadContract({
     abi,
-    address: userAddress,
+    address: address,
     functionName: 'balanceOf',
-    args: [userAddress],
+    args: address ? [address, BigInt(1)] : undefined,
   });
 
-  if (isLoading) return <div>Loading...</div>;
-  if (isError) return <div>Error loading balance</div>;
+  if (isLoading) return <div>Loading... </div>;
+  if (isError) return <div>Error loading balance </div>;
 
   return (
     <>
       <div>
-        <h1>User Balance</h1>
-        <p>{data ? data : 'No balance available'}</p>
+        <h1>Read contract data</h1>
+        <p>{data ? data : 'No data available'}</p>
       </div>
     </>
   );

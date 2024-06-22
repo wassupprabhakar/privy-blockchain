@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
-import { GetBalance } from "./_wagmi";
+import { ReadContract } from "./_wagmi";
 import Balance from "./_component/Balance";
 
 
@@ -23,8 +23,8 @@ export default function Home() {
     authenticated,
     user,
     logout } = usePrivy();
-  const {wallets} = useWallets();
-  const [showBalance, setShowBalance] = useState(false);
+  const { wallets } = useWallets();
+  const [showContract, setShowContract] = useState(false);
   const [userName, setUserName] = useState("");
   useEffect(() => {
     if (ready) {
@@ -37,7 +37,7 @@ export default function Home() {
     }
   }, [ready, authenticated, user]);
 
-  
+
   return (
     <div className="p-8 flex justify-center items-center h-screen ">
       <Card className="">
@@ -48,19 +48,26 @@ export default function Home() {
           <div>
             <p>User Id :  <b>{user?.id}</b></p>
             <ul>
-              
+
               <li>Wallet: {user?.wallet ? user?.wallet.address : 'None'}</li>
             </ul>
           </div>
-          {user &&
-            <div>
-              <Button variant="secondary" onClick={()=>setShowBalance(!showBalance)}>Show Balance</Button>
-            </div>
-          }
-          
-          {showBalance && user?.wallet?.address &&
-            <Balance />
-          }
+          <div className="pt-3">
+            {user &&
+              <div>
+                <Button variant="secondary" onClick={() => setShowContract(!showContract)}>Read Contract</Button>
+              </div>
+            }
+
+            {showContract && user?.wallet?.address &&
+              <>
+                <div className="pt-3">
+                  <ReadContract />
+                </div>
+              </>
+            }
+          </div>
+
         </CardContent>
         <CardFooter className="flex justify-between">
           <Button variant="outline" onClick={logout}>Logout</Button>
