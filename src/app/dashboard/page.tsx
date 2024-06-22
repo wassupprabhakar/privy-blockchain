@@ -39,8 +39,8 @@ export default function Home() {
 
 
   return (
-    <div className="p-8 flex justify-center items-center h-screen ">
-      <Card className="">
+    <div className="p-4 lg:p-8 flex justify-center items-center h-screen ">
+      <Card className="overflow-x-auto">
         <CardHeader>
           <CardTitle>Welcome {userName}</CardTitle>
         </CardHeader>
