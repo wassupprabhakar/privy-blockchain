@@ -1,7 +1,7 @@
 'use client';
 
 import { PrivyProvider } from '@privy-io/react-auth';
-import { base, mainnet,optimism } from 'viem/chains';
+import { base, optimism } from 'viem/chains';
 
 export default function PrivyAuthProviders({ children }: { children: React.ReactNode }) {
   const PRIVY_APP_ID = process.env.NEXT_PUBLIC_PRIVY_APP_ID;
@@ -22,8 +22,8 @@ export default function PrivyAuthProviders({ children }: { children: React.React
       appId={PRIVY_APP_ID}
       config={{
         loginMethods: ['email', 'wallet', 'google', 'farcaster'],
-        defaultChain: optimism,
-        supportedChains: [optimism, base, mainnet],
+        defaultChain: base,
+        supportedChains: [optimism, base],
         embeddedWallets: {
           createOnLogin: 'users-without-wallets',
         },

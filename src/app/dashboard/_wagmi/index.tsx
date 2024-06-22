@@ -1,10 +1,11 @@
 import { useReadContract, useAccount } from 'wagmi'
-import { abi } from './abi'
+//import { optimismAbi } from './optimismAbi';
+import { abi } from './baseAbi';
 import Big from 'big.js'; // Import big.js
 
 export const ReadContract = () => {
   const { address } = useAccount();
-  const contractAddress = process.env.NEXT_PUBLIC_CONTRACT_ID as `0x${string}` | undefined;
+  const contractAddress = process.env.NEXT_PUBLIC_BASE_CONTRACT_ID as `0x${string}` | undefined;
 
   const { data, isError, isLoading } = useReadContract({
     abi,
