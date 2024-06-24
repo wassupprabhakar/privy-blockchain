@@ -1,5 +1,5 @@
 import { useReadContract, useAccount } from 'wagmi'
-//import { optimismAbi } from './optimismAbi';
+//import { abi } from './optimismAbi';
 import { abi } from './baseAbi';
 import Big from 'big.js'; // Import big.js
 

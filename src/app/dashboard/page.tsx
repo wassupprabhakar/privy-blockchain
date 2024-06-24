@@ -50,9 +50,14 @@ export default function Home() {
 
     walletClient?.getChainId().then((chainId) => {
       //console.log("chain id = ", wallets);
+      if(chainId !== 8453) {
+        console.log("not set chain");
+        switchChain({chainId: 8453});
+      }
       setChainId(chainId.toString());
     });
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [walletClient]);
 
   return (
