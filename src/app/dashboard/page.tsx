@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { redirect } from 'next/navigation'
 import { usePrivy, useWallets } from "@privy-io/react-auth";
+import { useSwitchChain, useWalletClient } from 'wagmi';
 
 import {
   Card,
@@ -23,9 +24,15 @@ export default function Home() {
     authenticated,
     user,
     logout } = usePrivy();
+  const { data: walletClient, isError, isLoading } = useWalletClient();
+  const {
+    error: switchNetworkError,
+    switchChain,
+  } = useSwitchChain();
   const { wallets } = useWallets();
   const [showContract, setShowContract] = useState(false);
   const [userName, setUserName] = useState("");
+  const [chainId, setChainId] = useState<string | null>(null);
   useEffect(() => {
     if (ready) {
       if (!authenticated) {
@@ -37,6 +44,16 @@ export default function Home() {
     }
   }, [ready, authenticated, user]);
 
+
+  useEffect(() => {
+    if (!walletClient) return;
+
+    walletClient?.getChainId().then((chainId) => {
+      //console.log("chain id = ", wallets);
+      setChainId(chainId.toString());
+    });
+
+  }, [walletClient]);
 
   return (
     <div className="p-4 lg:p-8 flex justify-center items-center h-screen ">
@@ -68,14 +85,19 @@ export default function Home() {
             }
           </div>
           <div>
-            {user &&
+            {chainId &&
+              <div>
+                Chain Id : {chainId}
+              </div>
+            }
+            {/* {user &&
               <textarea
                 value={JSON.stringify(user, null, 2)}
                 className="mt-2 w-full rounded-md bg-slate-700 p-4 font-mono text-xs text-slate-50 sm:text-sm"
                 rows={JSON.stringify(user, null, 2).split('\n').length}
                 disabled
               />
-            }
+            } */}
           </div>
         </CardContent>
         <CardFooter className="flex justify-between">
