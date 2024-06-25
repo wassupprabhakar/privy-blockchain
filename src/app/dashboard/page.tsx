@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from "react";
 import { redirect } from 'next/navigation'
+import dynamic from 'next/dynamic';
 import { usePrivy, useWallets } from "@privy-io/react-auth";
 import { useSwitchChain, useWalletClient } from 'wagmi';
 
@@ -12,13 +13,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import { ReadContract } from "./_wagmi";
-import Balance from "./_component/Balance";
-import PdfViewer from "./_component/PdfViewer";
 
-
+const PdfViewer = dynamic(() => import('./_component/PdfViewer'), {
+  ssr: false
+});
 export default function Home() {
   const {
     ready,
@@ -60,6 +60,7 @@ export default function Home() {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [walletClient]);
+
 
   return (
     <>
