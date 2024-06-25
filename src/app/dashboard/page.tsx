@@ -65,7 +65,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="p-4 lg:p-8 flex justify-center items-center h-screen ">
+      <div className="p-1 lg:p-8 flex justify-center items-center h-screen ">
         <Card className="overflow-x-auto">
           <CardHeader>
             <CardTitle>Welcome {userName}</CardTitle>
@@ -122,13 +122,10 @@ export default function Home() {
         </Card>
       </div>
       <div className="pt-8">
-        <Card>
-          <CardContent>
-            {showPdf &&
-              <PdfViewer />
-            }
-          </CardContent>
-        </Card>
+        {showPdf &&
+          <PdfViewer />
+        }
+        
       </div>
     </>
   );
