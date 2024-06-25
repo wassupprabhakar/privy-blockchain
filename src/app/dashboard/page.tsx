@@ -34,6 +34,7 @@ export default function Home() {
   const [showContract, setShowContract] = useState(false);
   const [userName, setUserName] = useState("");
   const [chainId, setChainId] = useState<string | null>(null);
+  const [showPdf, setShowPdf] = useState(false);
   useEffect(() => {
     if (ready) {
       if (!authenticated) {
@@ -111,13 +112,21 @@ export default function Home() {
           </CardContent>
           <CardFooter className="flex justify-between">
             <Button variant="outline" onClick={logout}>Logout</Button>
+            <Button variant="secondary" onClick={() => setShowPdf(true)}>Show PDF</Button>
           </CardFooter>
+          <div className="p-3">
+            {showPdf &&
+              <><p>Scroll down to view pdf</p></>
+            }
+          </div>
         </Card>
       </div>
       <div className="pt-8">
         <Card>
           <CardContent>
-            <PdfViewer />
+            {showPdf &&
+              <PdfViewer />
+            }
           </CardContent>
         </Card>
       </div>
