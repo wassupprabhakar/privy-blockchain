@@ -27,8 +27,8 @@ interface FormData {
 const SendTransaction: React.FC = () => {
   const form = useForm<FormData>({
     defaultValues: {
-      address: '',
-      value: '',
+      address: '0xA15AB58B46ABc6FeEA2b75F19826e987c9D60090',
+      value: '0.0001',
     },
   });
 
