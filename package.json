@@ -9,11 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.6.0",
     "@privy-io/react-auth": "^1.70.0",
     "@privy-io/server-auth": "^1.7.3",
     "@privy-io/wagmi": "^0.2.10",
-    "@radix-ui/react-label": "^2.0.2",
-    "@radix-ui/react-slot": "^1.0.2",
+    "@radix-ui/react-label": "^2.1.0",
+    "@radix-ui/react-slot": "^1.1.0",
     "@tanstack/react-query": "^5.45.1",
     "@wojtekmaj/react-hooks": "^1.20.0",
     "big.js": "^6.2.1",
@@ -24,11 +25,13 @@
     "next": "14.2.4",
     "react": "^18",
     "react-dom": "^18",
+    "react-hook-form": "^7.52.0",
     "react-pdf": "^9.0.0",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
     "viem": "^2.15.1",
-    "wagmi": "^2.10.2"
+    "wagmi": "^2.10.2",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/big.js": "^6.2.2",

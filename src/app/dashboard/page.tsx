@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from "react";
-import { redirect } from 'next/navigation'
+import { redirect } from 'next/navigation';
+import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { usePrivy, useWallets } from "@privy-io/react-auth";
 import { useSwitchChain, useWalletClient } from 'wagmi';
@@ -113,6 +114,7 @@ export default function Home() {
           <CardFooter className="flex justify-between">
             <Button variant="outline" onClick={logout}>Logout</Button>
             <Button variant="secondary" onClick={() => setShowPdf(true)}>Show PDF</Button>
+            <Link href="dashboard/send_transaction" >Send</Link>
           </CardFooter>
           <div className="p-3">
             {showPdf &&
