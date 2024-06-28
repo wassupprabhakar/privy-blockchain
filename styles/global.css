@@ -11,3 +11,10 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'ComicNeueLightItalic';
+  src: url('/fonts/comicNeue/ComicNeue-LightItalic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

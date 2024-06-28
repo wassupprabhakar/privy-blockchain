@@ -5,7 +5,7 @@ import Navbar_Link from "./Navbar_Link"
 export default function Navbar() {
   return (
     <nav className="relative inset-x-0 top-0 z-50 shadow-sm bg-[#181818]" >
-      <div className="w-full mx-auto px-12 py-6">
+      <div className="w-full mx-auto px-14 py-6">
         <div className="flex justify-between items-center">
           <Link href="#" className="flex items-center" prefetch={false}>
             <Image src="/images/logo.png" alt="logo" height="60" width="140" className="w-5/6" />
