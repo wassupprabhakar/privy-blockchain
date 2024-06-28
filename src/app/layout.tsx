@@ -8,7 +8,7 @@ import Navbar from "./_component/Navbar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Privy Auth",
+  title: "Coven Classics",
   description: "",
 };
 

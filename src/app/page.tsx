@@ -60,7 +60,6 @@ export default function HomePage() {
   const baseAmountString = process.env.NEXT_PUBLIC_BASE_AMOUNT;
   const baseAmount = Number(baseAmountString);
   const handleCryptoPurchase = () => {
-
     if (walletAddress && baseAmount && !isNaN(baseAmount)) {
       const totalAmount = baseAmount * quantity;
       sendTransaction({ to: walletAddress as `0x${string}`, value: parseEther(totalAmount.toString()) });
@@ -72,7 +71,11 @@ export default function HomePage() {
       hash,
     });
 
-
+  
+  const handleCashPurchase = () => {
+    const url = "https://shop.covenclassics.com/cart/48787580780834:"+quantity;
+    window.open(url, '_blank');
+  }
   return (
     <div className=" relative text-white  items-center py-2 px-8 lg:px-12">
 
@@ -115,7 +118,7 @@ export default function HomePage() {
             <div className="flex space-x-7 md:space-x-8 lg:space-x-10  pt-4">
               {authenticated &&
                 <>
-                  <Pay_Button buttonText="PAY WITH CASH" />
+                  <Pay_Button buttonText="PAY WITH CASH" onClick={handleCashPurchase} />
                   <Pay_Button buttonText={isPending ? 'Confirming...' : 'PAY WITH CRYPTO'} onClick={handleCryptoPurchase} isDisabled={isPending} />
 
                 </>
