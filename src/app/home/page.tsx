@@ -4,7 +4,7 @@ import Pay_Button from './_component/Pay_Button';
 
 export default function HomePage() {
   return (
-    <div className=" relative text-white  items-center py-2 px-12">
+    <div className=" relative text-white  items-center py-2 px-8 lg:px-12">
 
       <main className="flex flex-col md:grid grid-cols-12">
         <div className='md:col-span-5'>
@@ -16,7 +16,7 @@ export default function HomePage() {
             height="800"
           />
         </div>
-        <div className=" md:pl-16 md:pr-16 md:py-7 rounded-lg shadow-lg md:col-span-7">
+        <div className=" px-10 lg:px-16 md:py-7 rounded-lg shadow-lg md:col-span-7">
 
           <h2 className="text-[100px] leading-[9rem] bg-clip-text text-transparent bg-gradient-to-b from-[#ECECEC] to-[#2E2E2E] ">PRACTICAL MAGICK</h2>
           <div className='text-[24px] font-[Longevity]'>
@@ -31,8 +31,8 @@ export default function HomePage() {
             <label className="mr-2">Select the number of copies you want to mint:</label>
             <input type="number" min="1" className="bg-[#181818]  p-2 rounded-lg text-black" />
           </div>
-          <p className="font-[ComicNeueLightItalic] text-base text-center text-white leading-5 mb-4">* If you purchase more than five digital comics, you will be eligible to claim and receive a physical copy of the comic by mail. Please allow us up to two months for shipping.</p>
-          <div className="flex space-x-4 justify-center text-center pt-4">
+          <p className="font-[ComicNeueLightItalic] text-base  text-white leading-5 mb-4">* If you purchase more than five digital comics, you will be eligible to claim and receive a physical copy of the comic by mail. Please allow us up to two months for shipping.</p>
+          <div className="flex space-x-7 md:space-x-8 lg:space-x-10  pt-4">
             <Pay_Button buttonText="PAY WITH CASH" />
             <Pay_Button buttonText="PAY WITH CRYPTO" />
           </div>
