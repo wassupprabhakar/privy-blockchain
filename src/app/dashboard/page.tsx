@@ -53,9 +53,9 @@ export default function Home() {
 
     walletClient?.getChainId().then((chainId) => {
       //console.log("chain id = ", wallets);
-      if (chainId !== 8453) {
+      if (chainId !== 84532) {
         //console.log("not set chain");
-        switchChain({ chainId: 8453 });
+        switchChain({ chainId: 84532 });
       }
       setChainId(chainId.toString());
     });
